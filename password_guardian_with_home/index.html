@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Guardian</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1> 🔓Password Strength check 🔒</h1>
+
+  <div class="container">
+    <label for="password">Enter a Password:</label>
+    <input type="password" id="password" placeholder="Type your password..."/>
+
+    <div class="strength-bar"><div class="bar-fill" id="bar"></div></div>
+    <div class="feedback" id="feedback">Start typing to check password strength</div>
+
+    <button onclick="generatePassword()">Generate Strong Password</button>
+
+    <div class="generated-password" id="generated"></div>
+  </div>
+
+  <script>
+    const passwordInput = document.getElementById("password");
+    const bar = document.getElementById("bar");
+    const feedback = document.getElementById("feedback");
+    const generated = document.getElementById("generated");
+
+    passwordInput.addEventListener("input", () => {
+      const pwd = passwordInput.value;
+      const strength = checkStrength(pwd);
+      updateUI(strength);
+    });
+
+    function checkStrength(password) {
+      let score = 0;
+      if (password.length >= 8) score++;
+      if (/[a-z]/.test(password)) score++;
+      if (/[A-Z]/.test(password)) score++;
+      if (/[0-9]/.test(password)) score++;
+      if (/[^A-Za-z0-9]/.test(password)) score++;
+      return score;
+    }
+
+    function updateUI(score) {
+      const levels = ["Very Weak", "Weak", "Moderate", "Strong", "Very Strong"];
+      const colors = ["#ef4444", "#f59e0b", "#facc15", "#10b981", "#059669"];
+      const widths = ["20%", "40%", "60%", "80%", "100%"];
+
+      bar.style.width = widths[score - 1] || "0%";
+      bar.style.background = colors[score - 1] || "#e5e7eb";
+      feedback.textContent = score ? `Strength: ${levels[score - 1]}` : "Start typing to check strength";
+    }
+
+    function generatePassword() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+      let pwd = "";
+      for (let i = 0; i < 12; i++) {
+        pwd += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      generated.textContent = "Suggested: " + pwd;
+    }
+  </script>
+</body>
+</html>

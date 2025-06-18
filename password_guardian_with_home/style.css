@@ -1,0 +1,63 @@
+
+body {
+  margin: 0;
+  font-family: bold, sans-serif;
+
+  background: url('bg2.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #eadfdf;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content:   center;
+  flex-direction: column;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+input[type="password"] {
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.strength-bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #10b981;
+  transition: width 0.3s;
+}
+
+.feedback, .generated-password {
+  margin-top: 1rem;
+}
