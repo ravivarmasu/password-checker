@@ -7,7 +7,7 @@ A modern, user-friendly password strength checker built with HTML, CSS, and Java
 
 ## 🌐 Live Demo
 
-
+https://68529797337b3d79aab14183--transcendent-bavarois-4cba26.netlify.app/
 
 
 ---
