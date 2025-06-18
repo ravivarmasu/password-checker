@@ -1,6 +1,7 @@
 # 🔐 Password Guardian
 
 A modern, user-friendly password strength checker built with HTML, CSS, and JavaScript. Featuring a beautiful glass-effect UI, live feedback, and strong security tips — it's perfect for anyone wanting to ensure their passwords are secure.
+![Uploading Screenshot 2025-06-18 161943.png…]()
 
 
 ---
